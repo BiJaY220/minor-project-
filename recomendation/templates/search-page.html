@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="../static/HARRINGT.TTF" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{%static 'search-style.css'%}"> -->
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    
+    <script src="{%static 'script.js'%}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  
+        <div class="head">
+            <!-- <a href="index.html"><img src="images/bx-football.svg" alt="logo"></a> -->
+            <h1>Similar player recommendation Tool</h1>
+            <p>For European top 5 football league</p>
+        </div>
+        <br>
+     
+<!-- {% comment %}  form is sued as flexbox, dont change {% endcomment %} -->
+<form class="column" id="c_flex" action="{% url 'myview' %}" method="get" >
+    <input type="hidden" id="search" name="search-box" value='{{selected_name}}'>
+    <input type="hidden" name="select" value='{{selection}}'>
+    <div id="for-flex">
+        <label for="nation-filter">Select country</label>
+        <select class="c_item" name="nation-filter">
+            <option value="{{filtered_nation}}" selected>{{filtered_nation}}</option> 
+            <option value="ALL">All</option>
+            <option value="ESP">Spain</option>
+            <option value="FRA">France</option>
+            <option value="GER">Germany</option>
+            <option value="ITA">Italy</option>
+            <option value="ENG">England</option>
+            <option value="BRA">Brazil</option>
+            <option value="NED">Netherlands</option>
+            <option value="ARG">Argentina</option>
+            <option value="POR">Portugal</option>
+            <option value="SEN">Senegal</option>
+            <option value="BEL">Belgium</option>
+            <option value="AUT">Austria</option>
+            <option value="DEN">Denmark</option>
+            <option value="CRO">Croatia</option>
+            <option value="SRB">Serbia</option>
+            <option value="URU">Uruguay</option>
+            <option value="CIV">Ivory Coast</option>
+            <option value="NGA">Nigeria</option>
+            <option value="SUI">Switzerland</option>
+            <option value="ALG">Algeria</option>
+            <option value="GHA">Ghana</option>
+            <option value="CMR">Cameroon</option>
+            <option value="POL">Poland</option>
+            <option value="MAR">Morocco</option>
+            <option value="MLI">Mali</option>
+            <option value="USA">USA</option>
+            <option value="NOR">Norway</option>
+            <option value="SWE">Sweden</option>
+            <option value="COL">Colombia</option>
+            <option value="SCO">Scotland</option>
+            <option value="TUR">Turkey</option>
+            <option value="ALB">Albania</option>
+            <option value="CZE">Czech Republic</option>
+            <option value="GRE">Greece</option>
+            <option value="JPN">Japan</option>
+            <option value="SVK">Slovakia</option>
+            <option value="CHI">Chile</option>
+            <option value="MEX">Mexico</option>
+            <option value="IRL">Ireland</option>
+            <option value="KVX">Kosovo</option>
+            <option value="BIH">Bosnia and Herzegovina</option>
+            <option value="COD">DR Congo</option>
+            <option value="TUN">Tunisia</option>
+            <option value="KOR">South Korea</option>
+            <option value="MNE">Montenegro</option>
+            <option value="UKR">Ukraine</option>
+            <option value="WAL">Wales</option>
+            <option value="VEN">Venezuela</option>
+            <option value="GUI">Guinea</option>
+            <option value="HUN">Hungary</option>
+            <option value="ECU">Ecuador</option>
+            <option value="SVN">Slovenia</option>
+            <option value="ROU">Romania</option>
+            <option value="ISL">Iceland</option>
+            <option value="PAR">Paraguay</option>
+            <option value="BFA">Burkina Faso</option>
+            <option value="GAB">Gabon</option>
+            <option value="MKD">North Macedonia</option>
+            <option value="FIN">Finland</option>
+            <option value="RUS">Russia</option>
+            <option value="CAN">Canada</option>
+            <option value="AGO">Angola</option>
+            <option value="COG">Congo</option>
+            <option value="BEN">Benin</option>
+            <option value="MTQ">Martinique</option>
+            <option value="TGO">Togo</option>
+            <option value="ISR">Israel</option>
+            <option value="GMB">Gambia</option>
+            <option value="JAM">Jamaica</option>
+            <option value="ARM">Armenia</option>
+            <option value="PER">Peru</option>
+            <option value="ZWE">Zimbabwe</option>
+            <option value="EGY">Egypt</option>
+            <option value="HND">Honduras</option>
+            <option value="GNQ">Equatorial Guinea</option>
+            <option value="NZL">New Zealand</option>
+            <option value="CRI">Costa Rica</option>
+            <option value="ZMB">Zambia</option>
+            <option value="CTA">Central African Republic</option>
+            <option value="LUX">Luxembourg</option>
+            <option value="MOZ">Mozambique</option>
+            <option value="SUR">Suriname</option>
+            <option value="IRN">Iran</option>
+            <option value="AUS">Australia</option>
+            <option value="PAN">Panama</option>
+            <option value="GLP">Guadeloupe</option>
+            <option value="CPV">Cape Verde</option>
+            <option value="TCD">Chad</option>
+            <option value="UZB">Uzbekistan</option>
+            <option value="PHL">Philippines</option>
+            <option value="CYP">Cyprus</option>
+            <option value="MDG">Madagascar</option>
+            <option value="ZAF">South Africa</option>
+            <option value="REU">Réunion</option>
+            <option value="DOM">Dominican Republic</option>
+            <option value="BGR">Bulgaria</option>
+            <option value="GRD">Grenada</option>
+            <option value="CHN">China</option>
+            <option value="SLE">Sierra Leone</option>
+            <option value="GUF">French Guiana</option>
+        </select>
+    </div>
+        <div id="for-flex">
+
+            <label for="comp-filter">League</label>
+            <select class="f_item" name="comp-filter">
+                
+            <option value='{{filtered_comp}}' selected>{{filtered_comp}}</option>
+                    <option value="ALL">ALL</option>
+                    <option value="Ligue 1">Ligue 1</option>
+                    <option value="Serie A">Serie A</option>
+                    <option value="Premier League">Premier League</option>
+                    <option value="La Liga">La Liga</option>
+                    <option value="Bundesliga">Bundesliga</option>
+                   
+                    
+            </select>   
+        </div>
+        <div id="for-flex">
+        <label for="value-filter">No. of players</label>
+        <select class="f_item" name="value-filter">
+            <option value='{{filtered_value}}' selected>{{filtered_value}}</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </select>
+        </div>
+        <div id="for-flex">
+        <label for="age-filter">Age</label>
+        <select class="f_item" name="age-filter">
+            <option value='{{filtered_age}}'>{{filtered_age}}</option>
+            <option value="ALL">ALL</option>
+            <option value="20">20</option>
+            <option value="23">23</option>
+            <option value="27">27</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+        </select>
+    </div>
+    <button type="submit">Filter</button>
+</form>
+            
+             <div id="player-select">
+                <div id="each-box">
+                    <form action="{% url 'myview' %}" method="get" class='flexbox'>
+                        <div class="flex_item">
+                                 <!-- {% comment %} button for others and goalkeepr {% endcomment %} -->
+                        <label for="select" >Player Type</label>
+                        <select name="select"  class="ddbutton">
+                            <option class='a' value="{{selection}}">{{selection}}</option>
+                            <option class='a' value="Goalkeeper">Goalkeeper</option>
+                            <option class='a' value="Others">Others</option>
+                        </select>
+                        </div>
+                    
+                </div>
+                <div id="each-box">
+                             <div class='flex_item'>
+                            <label for="search-box" >Select Player</label>
+                             <!-- {% comment %} <input type="hidden" id="select" name="selection" value={{selection}}> {% endcomment %} -->
+                             <input type="text" id="search" name="search-box" placeholder="Search Player">
+                </div>               
+                             </div>
+                             <div class="flex_item">                          
+                                <input type="hidden" name="nation-filter" value="{{filtered_nation}}">                        
+                                <input type="hidden" name="comp-filter" value="{{filtered_comp}}">                            
+                                <input type="hidden" name="value-filter" value="{{filtered_value}}">
+                                <input type="hidden" name="age-filter" value="{{filtered_age}}">
+                                <button type="submit" name="submit-search" onclick="namechange()">Search</button>
+                             </div> 
+                            </form>        
+                
+             </div>
+    <div class="row">
+        
+        <div class="column" id="listing">
+            <!-- <div id="for-name"> -->
+                <div class="listing-item"><h2 id="listed_name">{{selected_name}}</h2> </div>
+
+            <!-- </div> -->
+            <!-- <div class="listing-item"><p><h2>Age :</h2><h3> 18</h3></p></div> --> 
+            <div id="for-firstLine">
+                <div class="listing-item" ><h3>Club</h3><p id="listed_club">{{player_info.squad}}</p></div>
+                <div class="listing-item" ><h3>League</h3> <p id="listed_Positon">{{player_info.comp}}</p></div>
+            <!-- </div>
+          
+            <div id="for-secondLine detail"> -->
+                <div class="listing-item" ><h3>Age</h3> <p id="listed_Positon">{{player_info.age}}</h3></div>
+                <div class="listing-item" ><h3>Nationality</h3><p id="listed_nationality">{{player_info.nation}}</p></div>
+            </div>
+        </div>
+
+        <div class="column">
+            <table id="tabular" class="tab">
+                <tr id="table-header">
+                    <th>S.N</th>
+                    <th id>Name</th>
+                    <th>Club</th>
+                    <th>League</th>
+                    <th>Age</th>
+                    <th>Nationality</th>
+                    {% comment %} <th></th> {% endcomment %}
+                    {% comment %} <th></th> {% endcomment %}
+                </tr>
+                {% for x in mydata %}
+                    <tr>
+                        <td></td>
+                        <td id="name-table">{{x.0}}</td>
+                        <td id="club-table">{{x.2}}</td> 
+                        <td>{{x.3}}</td>
+                        <td>{{x.4}}</td>    
+                        <td>{{x.1}}</td>                       
+                    </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
